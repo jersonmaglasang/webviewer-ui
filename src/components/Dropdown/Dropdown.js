@@ -44,7 +44,7 @@ class Dropdown extends React.PureComponent {
     const dropdownItems = items.filter(item => item !== sortStrategy);
 
     return dropdownItems.map(item =>
-      <div key={item} className="dropdown-item" onClick={e => this.onClickDropdown(e, item)}>
+      <div key={item} className="dropdown-item" onClick={e => this.onClickDropdown(e, item)} onTouchStart={e => this.onClickDropdown(e, item)}>
         {this.getTranslatedContent(item)}
       </div>,
     );
@@ -58,7 +58,7 @@ class Dropdown extends React.PureComponent {
     }
 
     return (
-      <div className="Dropdown" data-element="dropdown" onClick={this.toggleDropdown}>
+      <div className="Dropdown" data-element="dropdown" onClick={this.toggleDropdown} onTouchStart={this.toggleDropdown}>
         <div className="items">
           <div className="display-item">{this.getTranslatedContent(sortStrategy)}</div>
           <div className={`dropdown-items ${this.state.isOpen ? 'show' : 'hide'}`}>

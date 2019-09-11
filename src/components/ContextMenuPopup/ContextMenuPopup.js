@@ -146,6 +146,7 @@ const ContextMenuPopup = () => {
       data-element="contextMenuPopup"
       style={{ ...position }}
       onClick={() => dispatch(actions.closeElement('contextMenuPopup'))}
+      onTouchStart={() => dispatch(actions.closeElement('contextMenuPopup'))}
     >
       <CustomizablePopup dataElement="contextMenuPopup">
         {dataElementButtonMap}

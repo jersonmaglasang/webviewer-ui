@@ -54,6 +54,7 @@ const LeftPanel = () => {
         <div
           className="close-btn hide-in-desktop"
           onClick={() => dispatch(actions.closeElement('leftPanel'))}
+          onTouchStart={() => dispatch(actions.closeElement('leftPanel'))}
         >
           <Icon glyph="ic_close_black_24px" />
         </div>

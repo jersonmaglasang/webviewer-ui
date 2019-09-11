@@ -96,7 +96,7 @@ class Thumbnail extends React.PureComponent {
 
     return (
       <div className={`Thumbnail ${isActive ? 'active' : ''}`}>
-        <div className="container" ref={this.thumbContainer} onClick={this.handleClick}></div>
+        <div className="container" ref={this.thumbContainer} onClick={this.handleClick} onTouchStart={this.handleClick}></div>
         <div className="page-label">{pageLabel}</div>
       </div>
     );

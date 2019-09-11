@@ -19,7 +19,6 @@ class HeaderItems extends React.PureComponent {
     const { items } = this.props;
     return (
       <div className="HeaderItems">
-        <button onClick={() => alert('clicked')} onTouchStart={() => alert('touched start')}>Click me</button>
         {items.map((item, i) => {
           const { type, dataElement, hidden } = item;
           const mediaQueryClassName = hidden ? hidden.map(screen => `hide-in-${screen}`).join(' ') : `${item.className || ''}`;

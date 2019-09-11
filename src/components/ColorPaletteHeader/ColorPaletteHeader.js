@@ -35,6 +35,7 @@ class ColorPaletteHeader extends React.PureComponent {
           className={colorPalette === 'TextColor' ? 'text selected' : 'text'}
           style={{ color: TextColor.toHexString() }}
           onClick={() => this.setColorPalette('TextColor')}
+          onTouchStart={() => this.setColorPalette('TextColor')}
         >
           Aa
         </div>
@@ -67,6 +68,7 @@ class ColorPaletteHeader extends React.PureComponent {
         <div
           className={colorPalette === 'StrokeColor' ? 'border selected' : 'border'}
           onClick={() => this.setColorPalette('StrokeColor')}
+          onTouchStart={() => this.setColorPalette('StrokeColor')}
         >
           <div
             className={`border-icon ${getBrightness(StrokeColor)}}`}
@@ -88,6 +90,7 @@ class ColorPaletteHeader extends React.PureComponent {
         <div
           className={colorPalette === 'FillColor' ? 'fill selected' : 'fill'}
           onClick={() => this.setColorPalette('FillColor')}
+          onTouchStart={() => this.setColorPalette('FillColor')}
         >
           <div
             className={`fill-icon ${getBrightness(FillColor)} ${isTransparency ? 'transparency' : ''}`}

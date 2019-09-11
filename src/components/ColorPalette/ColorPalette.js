@@ -47,7 +47,7 @@ class ColorPalette extends React.PureComponent {
     );
 
     return (
-      <div className="cell" key={key} onClick={this.setColor}>
+      <div className="cell" key={key} onClick={this.setColor} onTouchStart={this.setColor}>
         {this.renderCheckMark(bg)}
         {diagonalLine}
       </div>
