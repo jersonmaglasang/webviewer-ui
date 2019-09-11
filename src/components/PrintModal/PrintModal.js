@@ -464,16 +464,17 @@ class PrintModal extends React.PureComponent {
             <div
               className="button"
               onClick={this.createPagesAndPrint}
+              onTouchStart={this.createPagesAndPrint}
               disabled={count > -1}
             >
               {t('action.print')}
             </div>
             {isPrinting ? (
-              <div className="button" onClick={this.cancelPrint}>
+              <div className="button" onClick={this.cancelPrint} onTouchStart={this.cancelPrint}>
                 {t('action.cancel')}
               </div>
             ) : (
-              <div className="button" onClick={this.closePrintModal}>
+              <div className="button" onClick={this.closePrintModal} onTouchStart={this.closePrintModal}>
                 {t('action.close')}
               </div>
             )}

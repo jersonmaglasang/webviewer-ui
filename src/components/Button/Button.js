@@ -63,6 +63,7 @@ const Button = ({
       className={buttonClass}
       data-element={dataElement}
       onClick={onClick}
+      onTouchStart={onClick}
     >
       {content}
     </div>
