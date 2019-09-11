@@ -89,12 +89,12 @@ const NotePopup = ({ annotation, setIsEditing }) => {
       {isOpen && (
         <div className="options" onClick={closePopup}>
           {isEditable && (
-            <div data-element="notePopupEdit" onClick={handleEdit}>
+            <div data-element="notePopupEdit" onClick={handleEdit} onTouchStart={handleEdit}>
               {t('action.edit')}
             </div>
           )}
           {isDeletable && (
-            <div data-element="notePopupDelete" onClick={handleDelete}>
+            <div data-element="notePopupDelete" onClick={handleDelete} onTouchStart={handleDelete}>
               {t('action.delete')}
             </div>
           )}

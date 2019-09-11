@@ -10,6 +10,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   onClick: () => {
     ownProps.onClick(dispatch);
   },
+  onTouchStart: () => {
+    ownProps.onClick(dispatch);
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Button);

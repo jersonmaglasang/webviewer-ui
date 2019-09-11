@@ -106,6 +106,7 @@ class StatefulButton extends React.PureComponent {
         img={img}
         label={content}
         onClick={this.onClick}
+        onTouchStart={this.onClick}
         title={title}
       />
     );

@@ -55,7 +55,7 @@ class ColorPalette extends React.PureComponent {
   }
 
   renderColorCell = (bg, key) => (
-    <div className="cell" key={key} style={{ backgroundColor: bg }} onClick={this.setColor}>
+    <div className="cell" key={key} style={{ backgroundColor: bg }} onClick={this.setColor} onTouchStart={this.setColor}>
       {this.renderCheckMark(bg)}
     </div>
   )

@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   onClick: () => {
     dispatch(actions.toggleElement(ownProps.element));
   },
+  onTouchStart: () => {
+    dispatch(actions.toggleElement(ownProps.element));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Button);

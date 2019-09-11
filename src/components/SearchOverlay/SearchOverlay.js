@@ -333,14 +333,14 @@ class SearchOverlay extends React.PureComponent {
                 <div>{`${activeResultIndex + 1} / ${results.length}`}</div>
               }
             </div>
-            <div className="button previous" onClick={this.onClickPrevious}>
+            <div className="button previous" onClick={this.onClickPrevious} onTouchStart={this.onClickPrevious}>
               <Icon glyph="ic_chevron_left_black_24px" />
             </div>
-            <div className="button next" onClick={this.onClickNext}>
+            <div className="button next" onClick={this.onClickNext} onTouchStart={this.onClickNext}>
               <Icon glyph="ic_chevron_right_black_24px" />
             </div>
             <Tooltip content="action.showMoreResults">
-              <div className={`advanced ${isSearchPanelOpen || isSearchPanelDisabled ? 'hidden' : ''}`} onClick={this.onClickOverflow}>
+              <div className={`advanced ${isSearchPanelOpen || isSearchPanelDisabled ? 'hidden' : ''}`} onClick={this.onClickOverflow} onTouchStart={this.onClickOverflow}>
                 <Icon glyph="ic_overflow_black_24px" />
               </div>
             </Tooltip>

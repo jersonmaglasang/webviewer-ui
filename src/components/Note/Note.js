@@ -159,10 +159,10 @@ const ReplyArea = ({ annotation }) => {
 
       {isFocused && (
         <div className="buttons">
-          <button className={replyBtnClass} onMouseDown={postReply}>
+          <button className={replyBtnClass} onMouseDown={postReply} onTouchStart={postReply}>
             {t('action.reply')}
           </button>
-          <button onMouseDown={handleCancelClick}>{t('action.cancel')}</button>
+          <button onMouseDown={handleCancelClick} onTouchStart={handleCancelClick}>{t('action.cancel')}</button>
         </div>
       )}
     </div>

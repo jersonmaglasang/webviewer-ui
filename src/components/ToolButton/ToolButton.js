@@ -65,6 +65,7 @@ const ToolButton = ({ toolName, ...restProps }) => {
         hasStyles: toolStylesExist(toolName),
       })}
       onClick={handleClick}
+      onTouchStart={handleClick}
       isActive={isActive}
       color={color}
       {...restProps}

@@ -133,6 +133,7 @@ class ToolGroupButton extends React.PureComponent {
         mediaQueryClassName={mediaQueryClassName}
         isActive={isActive}
         onClick={this.onClick}
+        onTouchStart={this.onClick}
         dataElement={dataElement}
         img={img}
         color={color}
