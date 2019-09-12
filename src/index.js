@@ -128,6 +128,29 @@ if (window.CanvasRenderingContext2D) {
     setDefaultToolStyles();
     core.setToolMode(defaultTool);
 
+    document.getElementById('app').addEventListener('tap', (e) => {
+      console.log('tap');
+      // e.target.dispatchEvent(event);
+      if (e.touches && e.touches.length === 1) {
+        const touch = e.touches[0];
+
+        const simulatedEvent = document.createEvent("MouseEvent");
+              simulatedEvent.initMouseEvent({
+              touchstart: "mousedown",
+              touchmove: "mousemove",
+              touchend: "mouseup",
+              tap: "click"
+          }[event.type], true, true, window, 1,
+              touch.screenX, touch.screenY,
+              touch.clientX, touch.clientY, false,
+              false, false, false, 0, null);
+    
+          touch.target.dispatchEvent(simulatedEvent);
+      }
+
+      e.preventDefault();
+    });
+
     ReactDOM.render(
       <Provider store={store}>
         <I18nextProvider i18n={i18next}>

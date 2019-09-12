@@ -44,7 +44,6 @@ const propTypes = {
 
 const App = ({ removeEventHandlers }) => {
   const store = useStore();
-
   useEffect(() => {
     defineReaderControlAPIs(store);
     fireEvent('viewerLoaded');

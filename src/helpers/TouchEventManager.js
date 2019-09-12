@@ -168,7 +168,7 @@ const TouchEventManager = {
       }
     }
   },
-  handleTouchEnd() {
+  handleTouchEnd(e) {
     switch (this.touch.type) {
       case 'tap': {
         this.doubleTapTimeout = setTimeout(() => {
@@ -177,6 +177,8 @@ const TouchEventManager = {
 
         this.horziontalLock = false;
         this.verticalLock = false;
+
+        
         break;
       }
       case 'swipe': {
