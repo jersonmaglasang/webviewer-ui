@@ -190,7 +190,11 @@ class SignatureOverlay extends React.PureComponent {
   }
 
   render() {
-    const { left, right, defaultSignatures } = this.state;
+    let { left, right, defaultSignatures } = this.state;
+
+    if (isNaN(left)) {
+      left = 0;
+    }
     const { t, isDisabled, maxSignaturesCount } = this.props;
     const className = getClassName('Overlay SignatureOverlay', this.props);
 

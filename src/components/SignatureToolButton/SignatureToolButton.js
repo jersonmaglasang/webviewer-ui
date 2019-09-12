@@ -37,7 +37,9 @@ const SignatureToolButton = props => {
   }, []);
 
   const handleClick = e => {
+    // console.log(e);
     e.stopPropagation();
+    // e.preventDefault();
 
     if (hasSavedSignature) {
       toggleElement('signatureOverlay');
@@ -56,7 +58,7 @@ const SignatureToolButton = props => {
       isActive={isSignatureModalOpen || isSignatureOverlayOpen}
       img="ic_annotation_signature_black_24px"
       onClick={handleClick}
-      onTouchStart={handleClick}
+      // onTouchStart={handleClick}
       title="annotation.signature"
     />
   );

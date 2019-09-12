@@ -29,6 +29,9 @@ export default {
         onClick: (update, state, dispatch) => {
           dispatch(actions.openElement('signatureModal'));
         },
+        onTouchStart: (update, state, dispatch) => {
+          dispatch(actions.openElement('signatureModal'));
+        },
         title: 'annotation.signature',
         // we also consider if signatureOverlay is open in this state because there can be a case where all the default signatures are deleted
         // when signatureOverlay is open and this button's state will become "newSignature"
@@ -40,6 +43,9 @@ export default {
         onClick: (update, state, dispatch) => {
           dispatch(actions.toggleElement('signatureOverlay'));
         },
+        // onTouchStart: (update, state, dispatch) => {
+        //   dispatch(actions.toggleElement('signatureOverlay'));
+        // },
         title: 'annotation.signature',
         isActive: ({ openElements }) => openElements.signatureOverlay,
         className: 'down-arrow',
