@@ -161,6 +161,7 @@ class SignatureModal extends React.PureComponent {
               title="action.close"
               img="ic_close_black_24px"
               onClick={this.closeModal}
+              onTouchStart={this.closeModal}
             />
           </div>
           <div className="signature">
@@ -170,6 +171,7 @@ class SignatureModal extends React.PureComponent {
               <div
                 className={`signature-clear ${canClear ? 'active' : null}`}
                 onClick={this.clearCanvas}
+                onTouchStart={this.clearCanvas}
               >
                 {t('action.clear')}
               </div>
@@ -187,6 +189,7 @@ class SignatureModal extends React.PureComponent {
               <div
                 className="signature-save"
                 data-element="saveSignatureButton"
+                onTouchStart={this.handleSaveSignatureChange}
               >
                 <input
                   id="default-signature"
@@ -199,7 +202,7 @@ class SignatureModal extends React.PureComponent {
                 </label>
               </div>
             )}
-            <div className="signature-create" onClick={this.createSignature}>
+            <div className="signature-create" onClick={this.createSignature} onTouchStart={this.createSignature}>
               {t('action.create')}
             </div>
           </div>

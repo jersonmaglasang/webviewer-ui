@@ -56,6 +56,7 @@ const SignatureToolButton = props => {
       isActive={isSignatureModalOpen || isSignatureOverlayOpen}
       img="ic_annotation_signature_black_24px"
       onClick={handleClick}
+      onTouchEnd={handleClick}
       title="annotation.signature"
     />
   );

@@ -21,7 +21,8 @@ const propTypes = {
   dataElement: PropTypes.string,
   className: PropTypes.string,
   onClick: PropTypes.func.isRequired,
-  onTouchStart: PropTypes.func.isRequired,
+  onTouchStart: PropTypes.func,
+  onTouchEnd: PropTypes.func,
 };
 
 const Button = ({
@@ -33,6 +34,7 @@ const Button = ({
   dataElement,
   onClick = () => {},
   onTouchStart = () => {},
+  onTouchEnd = () => {},
   className,
   title,
 }) => {
@@ -66,6 +68,7 @@ const Button = ({
       data-element={dataElement}
       onClick={onClick}
       onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
       {content}
     </div>
