@@ -129,7 +129,6 @@ if (window.CanvasRenderingContext2D) {
     core.setToolMode(defaultTool);
 
     document.getElementById('app').addEventListener('touchstart', (e) => {
-      console.log('touchstart');
       // e.target.dispatchEvent(event);
       if (e.touches && e.touches.length === 1) {
         const touch = e.touches[0];
@@ -144,15 +143,14 @@ if (window.CanvasRenderingContext2D) {
         touch.screenX, touch.screenY,
         touch.clientX, touch.clientY, false,
         false, false, false, 0, null);
-        console.log(simulatedEvent);
+        console.log('ui','touchstart',simulatedEvent.type);
         touch.target.dispatchEvent(simulatedEvent);
       }
 
       // e.preventDefault();
-      e.stopPropagation();
+      // e.stopPropagation();
     });
     document.getElementById('app').addEventListener('touchend', (e) => {
-      console.log('touchend');
       // e.target.dispatchEvent(event);
       if (e.touches && e.touches.length === 1) {
         const touch = e.touches[0];
@@ -167,12 +165,12 @@ if (window.CanvasRenderingContext2D) {
         touch.screenX, touch.screenY,
         touch.clientX, touch.clientY, false,
         false, false, false, 0, null);
-        console.log(simulatedEvent);
+        console.log('ui','touchend',simulatedEvent.type);
         touch.target.dispatchEvent(simulatedEvent);
       }
 
       // e.preventDefault();
-      e.stopPropagation();
+      // e.stopPropagation();
     });
 
     ReactDOM.render(
