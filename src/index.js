@@ -130,34 +130,84 @@ if (window.CanvasRenderingContext2D) {
 
     document.getElementById('app').addEventListener('touchstart', (e) => {
       // e.target.dispatchEvent(event);
-      if (e.touches && e.touches.length === 1) {
-        const touch = e.touches[0];
+      // e.preventDefault();
+      // if (e.touches && e.touches.length === 1) {
+      //   const touch = e.touches[0];
 
-        const simulatedEvent = document.createEvent('MouseEvent');
-        simulatedEvent.initMouseEvent({
-          touchstart: 'mousedown',
-          touchmove: 'mousemove',
-          touchend: 'mouseup',
-          tap: 'click'
-        }[event.type], true, true, window, 1,
-        touch.screenX, touch.screenY,
-        touch.clientX, touch.clientY, false,
-        false, false, false, 0, null);
-        console.log('ui','touchstart',simulatedEvent.type);
-        touch.target.dispatchEvent(simulatedEvent);
-      }
+      //   const simulatedEvent = document.createEvent('MouseEvent');
+      //   simulatedEvent.initMouseEvent({
+      //     touchstart: 'mousedown',
+      //     touchmove: 'mousemove',
+      //     touchend: 'mouseup',
+      //     tap: 'click'
+      //   }[event.type], true, true, window, 1,
+      //   touch.screenX, touch.screenY,
+      //   touch.clientX, touch.clientY, false,
+      //   false, false, false, 0, null);
+      //   console.log('ui','touchstart',simulatedEvent.type);
+      //   touch.target.dispatchEvent(simulatedEvent);
+      // }
 
       // e.preventDefault();
       // e.stopPropagation();
     });
     document.getElementById('app').addEventListener('touchend', (e) => {
       // e.target.dispatchEvent(event);
+      // e.preventDefault();
+      // if (e.touches && e.touches.length === 1) {
+      //   const touch = e.touches[0];
+
+      //   const simulatedEvent = document.createEvent('MouseEvent');
+      //   simulatedEvent.initMouseEvent({
+      //     touchstart: 'mouseup',
+      //     touchmove: 'mousemove',
+      //     touchend: 'mouseup',
+      //     tap: 'click'
+      //   }[event.type], true, true, window, 1,
+      //   touch.screenX, touch.screenY,
+      //   touch.clientX, touch.clientY, false,
+      //   false, false, false, 0, null);
+      //   console.log('ui','touchend',simulatedEvent.type);
+      //   touch.target.dispatchEvent(simulatedEvent);
+      // }
+
+      // e.preventDefault();
+      // e.stopPropagation();
+    });
+
+    document.getElementById('app').addEventListener('tap', (e) => {
+      // e.target.dispatchEvent(event);
+      // e.preventDefault();
       if (e.touches && e.touches.length === 1) {
         const touch = e.touches[0];
 
         const simulatedEvent = document.createEvent('MouseEvent');
         simulatedEvent.initMouseEvent({
-          touchstart: 'mousedown',
+          touchstart: 'mouseup',
+          touchmove: 'mousemove',
+          touchend: 'mouseup',
+          tap: 'mousedown'
+        }[event.type], true, true, window, 1,
+        touch.screenX, touch.screenY,
+        touch.clientX, touch.clientY, false,
+        false, false, false, 0, null);
+        console.log('ui','tap',simulatedEvent.type);
+        touch.target.dispatchEvent(simulatedEvent);
+
+        simulatedEvent.initMouseEvent({
+          touchstart: 'mouseup',
+          touchmove: 'mousemove',
+          touchend: 'mouseup',
+          tap: 'mouseup'
+        }[event.type], true, true, window, 1,
+        touch.screenX, touch.screenY,
+        touch.clientX, touch.clientY, false,
+        false, false, false, 0, null);
+        console.log('ui','tap',simulatedEvent.type);
+        touch.target.dispatchEvent(simulatedEvent);
+
+        simulatedEvent.initMouseEvent({
+          touchstart: 'mouseup',
           touchmove: 'mousemove',
           touchend: 'mouseup',
           tap: 'click'
@@ -165,7 +215,7 @@ if (window.CanvasRenderingContext2D) {
         touch.screenX, touch.screenY,
         touch.clientX, touch.clientY, false,
         false, false, false, 0, null);
-        console.log('ui','touchend',simulatedEvent.type);
+        console.log('ui','tap',simulatedEvent.type);
         touch.target.dispatchEvent(simulatedEvent);
       }
 
