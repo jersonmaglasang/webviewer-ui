@@ -8,11 +8,22 @@ import ActionButton from 'components/ActionButton';
 import StatefulButton from 'components/StatefulButton';
 import CustomElement from 'components/CustomElement';
 
+import core from 'core';
+
 import './HeaderItems.scss';
+
+import selectors from 'selectors';
+import { connect } from 'react-redux';
 
 class HeaderItems extends React.PureComponent {
   static propTypes = {
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
+
+    currentPage: PropTypes.number,
+  }
+
+  rotateRight = () => {
+    console.log(this.props.currentPage);
   }
 
   render() {
@@ -24,6 +35,8 @@ class HeaderItems extends React.PureComponent {
         <button>Down</button>
         <button>Left</button>
         <button>Right</button>
+        <button>Rotate Left</button>
+        <button onClick={this.rotateRight}>Rotate Right</button>
         {items.map((item, i) => {
           const { type, dataElement, hidden } = item;
           const mediaQueryClassName = hidden ? hidden.map(screen => `hide-in-${screen}`).join(' ') : `${item.className || ''}`;
@@ -53,4 +66,12 @@ class HeaderItems extends React.PureComponent {
   }
 }
 
-export default HeaderItems;
+const mapStateToProps = state => ({
+  currentPage: selectors.getCurrentPage(state),
+});
+
+// export default HeaderItems;
+// TODO remove this
+export default connect(
+  mapStateToProps,
+)((HeaderItems));
