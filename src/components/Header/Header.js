@@ -25,9 +25,11 @@ class Header extends React.PureComponent {
     }
 
     return (
+      <>
       <div className={className} data-element="header">
         <HeaderItems items={activeHeaderItems} />
       </div>
+      </>
     );
   }
 }

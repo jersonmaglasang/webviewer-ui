@@ -19,6 +19,11 @@ class HeaderItems extends React.PureComponent {
     const { items } = this.props;
     return (
       <div className="HeaderItems">
+        {/* TODO remove this */}
+        <button>Up</button>
+        <button>Down</button>
+        <button>Left</button>
+        <button>Right</button>
         {items.map((item, i) => {
           const { type, dataElement, hidden } = item;
           const mediaQueryClassName = hidden ? hidden.map(screen => `hide-in-${screen}`).join(' ') : `${item.className || ''}`;
