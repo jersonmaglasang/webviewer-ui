@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\SearchOverlay",
+    "\\src\\redux"
+  ],
+  "SelectedNode": "\\src\\components\\SearchOverlay\\SearchOverlay.js",
+  "PreviewInSolutionExplorer": false
+}

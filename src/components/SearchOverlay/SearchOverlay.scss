@@ -150,5 +150,31 @@
         padding: 5px 0 0 20px;
       }
     }
+	.buttons.hidden {
+	  display:none;
+	}
+	.buttons {
+		width:100%;
+		padding: 0.2em;
+	}
+	
+	.buttons .redact {
+	  background-color: #f4511e;
+	  border: none;
+	  color: white;
+	  padding: 7px 8px;
+	  text-align: center;
+	  font-size: 0.8em;	  
+	  opacity: 0.6;
+	  transition: 0.3s;
+	  display: inline-block;
+	  text-decoration: none;
+	  cursor: pointer;
+	  border-radius:4px;
+	  width:calc(100% - 28px);
+	}
+	.buttons .redact:hover{
+		opacity: 1;
+	}
   }
 }

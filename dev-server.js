@@ -29,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use('/i18n', express.static(path.resolve(__dirname, 'i18n')));
 app.use('/assets', express.static(path.resolve(__dirname, 'assets')));
 app.use('/core', express.static(path.resolve(__dirname, 'lib/core')));
+app.use('/test', express.static(path.resolve(__dirname, 'test')));
 
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'src/index.html'));
@@ -36,7 +37,7 @@ app.get('/', (req, res) => {
 
 app.get('/sample-url', (req, res) => {
   res.redirect(
-    `/#d=https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf&a=1`
+    'http://localhost:3000/#d=http://localhost:3000/test/files/pdf_file.pdf'
   );
 });
 
@@ -47,7 +48,8 @@ app.listen(3000, '0.0.0.0', err => {
     // eslint-disable-next-line
     console.info(`Listening at localhost:3000 (http://${ip.address()}:3000)`);
     opn(
-      'http://localhost:3000/#d=https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf&a=1'
+	  'http://localhost:3000/#d=http://localhost:3000/test/files/pdf_file.pdf'
+      /*'http://localhost:3000/#d=https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.pdf&a=1'*/
     );
   }
 });

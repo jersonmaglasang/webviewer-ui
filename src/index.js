@@ -113,7 +113,7 @@ if (window.CanvasRenderingContext2D) {
 
   logDebugInfo(state.advanced);
 
-  fullAPIReady.then(() => loadConfig()).then(() => {
+  fullAPIReady.then(() => loadConfig()).then((instance) => {
     const { addEventHandlers, removeEventHandlers } = eventHandler(store);
     const docViewer = new window.CoreControls.DocumentViewer();
     window.docViewer = docViewer;
@@ -128,6 +128,11 @@ if (window.CanvasRenderingContext2D) {
     addEventHandlers();
     setDefaultToolStyles();
     core.setToolMode(defaultTool);
+	
+	//tests 
+	core.enableRedaction();
+	 
+	
 
     ReactDOM.render(
       <Provider store={store}>

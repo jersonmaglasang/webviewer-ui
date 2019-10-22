@@ -313,6 +313,35 @@ class SearchOverlay extends React.PureComponent {
     this.clearSearchResults();
     this.executeDebouncedFullSearch();
   }
+  
+  onClickRedactResults = e => {	   
+	const annotationManager = core.getDocumentViewer().getAnnotationManager();
+	
+	let newAnnotations = [];
+	for(let i=0;i<this.props.results.length;i++){
+		let result = this.props.results[i];
+		if(result.redacted){
+			continue;
+		}
+		result.redacted = true;
+		
+        let annotation = new window.Annotations.RedactionAnnotation();
+        annotation.PageNumber = result.page_num + 1;
+        annotation.Quads = result.quads.map(quad => quad.getPoints());
+        annotation.StrokeColor = new Annotations.Color(136, 39, 31);
+
+        newAnnotations.push(annotation);
+    }; 
+	
+	annotationManager.addAnnotations(newAnnotations);
+    annotationManager.drawAnnotationsFromList(newAnnotations); 
+  };
+  
+  onClickApplyRedactions = e => {	   
+	var annotationManager = core.getDocumentViewer().getAnnotationManager();
+	annotationManager.applyRedactions();
+  }; 
+ 
 
   render() {
     const { isDisabled, t, isSearchPanelOpen, isSearchPanelDisabled, results, searchValue, activeResultIndex } = this.props;
@@ -351,6 +380,9 @@ class SearchOverlay extends React.PureComponent {
             <Input id="case-sensitive-option" type="checkbox" ref={this.caseSensitiveInput} onChange={this.onChangeCaseSensitive} label={t('option.searchPanel.caseSensitive')} />
             <Input id="whole-word-option" type="checkbox" ref={this.wholeWordInput} onChange={this.onChangeWholeWord} label={t('option.searchPanel.wholeWordOnly')} />
           </div>
+          <div className={`buttons ${results.length > 0 ? 'visible' : 'hidden'}`}>
+			<button className="redact" onClick={this.onClickRedactResults}>Redact Results</button>
+		  </div>
         </div>
       </div>
     );
@@ -374,7 +406,7 @@ const mapStateToProps = state => ({
   isProgrammaticSearchFull: selectors.isProgrammaticSearchFull(state),
   searchListeners: selectors.getSearchListeners(state),
   isDisabled: selectors.isElementDisabled(state, 'searchOverlay'),
-  isOpen: selectors.isElementOpen(state, 'searchOverlay'),
+  isOpen: selectors.isElementOpen(state, 'searchOverlay') 
 });
 
 const mapDispatchToProps = {
